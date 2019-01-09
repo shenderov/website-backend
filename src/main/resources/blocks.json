@@ -1,0 +1,343 @@
+{
+  "skills": {
+    "@class": ".SkillsBlock",
+    "id": "skills",
+    "title": "Skills",
+    "position": 3,
+    "skills": [
+      {
+        "position": 1,
+        "iconClass": null,
+        "label": "Java",
+        "value": "94"
+      },
+      {
+        "position": 2,
+        "iconClass": null,
+        "label": "Spring Framework",
+        "value": "90"
+      },
+      {
+        "position": 3,
+        "iconClass": null,
+        "label": "Selenium Web Driver",
+        "value": "95"
+      },
+      {
+        "position": 4,
+        "iconClass": null,
+        "label": "Groovy",
+        "value": "80"
+      },
+      {
+        "position": 5,
+        "iconClass": null,
+        "label": "CI/CD Tools",
+        "value": "82"
+      },
+      {
+        "position": 6,
+        "iconClass": null,
+        "label": "Databases",
+        "value": "80"
+      },
+      {
+        "position": 7,
+        "iconClass": null,
+        "label": "Clouding and virtualization",
+        "value": "70"
+      },
+      {
+        "position": 8,
+        "iconClass": null,
+        "label": "Software Testing Methodologies",
+        "value": "97"
+      },
+      {
+        "position": 9,
+        "iconClass": null,
+        "label": "JUnit, TestNG, Spock",
+        "value": "95"
+      },
+      {
+        "position": 10,
+        "iconClass": null,
+        "label": "SoapUI",
+        "value": "90"
+      },
+      {
+        "position": 11,
+        "iconClass": null,
+        "label": "Bash Scripting",
+        "value": "70"
+      },
+      {
+        "position": 12,
+        "iconClass": null,
+        "label": "JavaScript / AngularJS",
+        "value": "75"
+      },
+      {
+        "position": 13,
+        "iconClass": null,
+        "label": "HTML5 / CSS3",
+        "value": "76"
+      },
+      {
+        "position": 14,
+        "iconClass": null,
+        "label": "Spring Boot",
+        "value": "80"
+      }
+    ]
+  },
+  "education": {
+    "@class": ".TimelineBlock",
+    "id": "education",
+    "title": "Education",
+    "position": 6,
+    "elements": [
+      {
+        "startDate": "2017-10-31T22:00:00.000+0000",
+        "endDate": null,
+        "noEndDate": false,
+        "positionName": "Computer Science",
+        "organisation": "University of the People",
+        "location": "California",
+        "description": null
+      },
+      {
+        "startDate": "2013-10-31T21:00:00.000+0000",
+        "endDate": "2015-10-31T21:00:00.000+0000",
+        "noEndDate": false,
+        "positionName": "Web, Java/J2EE/Android Programming",
+        "organisation": "Tel-Ran Colledge",
+        "location": "Israel",
+        "description": null
+      },
+      {
+        "startDate": "2013-10-31T21:00:00.000+0000",
+        "endDate": null,
+        "noEndDate": true,
+        "positionName": "ISTQB",
+        "organisation": "Software Testing Certification",
+        "location": null,
+        "description": null
+      },
+      {
+        "startDate": "2002-09-31T21:00:00.000+0000",
+        "endDate": "2008-05-31T21:00:00.000+0000",
+        "noEndDate": false,
+        "positionName": "Master of law (LL.m.)",
+        "organisation": "Moscow University",
+        "location": "Russia",
+        "description": null
+      }
+    ]
+  },
+  "languages": {
+    "@class": ".SkillsBlock",
+    "id": "languages",
+    "title": "Languages",
+    "position": 4,
+    "skills": [
+      {
+        "position": 1,
+        "iconClass": null,
+        "label": "English",
+        "value": "85"
+      },
+      {
+        "position": 2,
+        "iconClass": null,
+        "label": "Russian",
+        "value": "100"
+      },
+      {
+        "position": 3,
+        "iconClass": null,
+        "label": "Hebrew",
+        "value": "80"
+      }
+    ]
+  },
+  "contact": {
+    "@class": ".ContactBlock",
+    "id": "contact",
+    "title": "Contact Form",
+    "position": 7,
+    "formLabels": [
+      {
+        "position": 1,
+        "iconClass": "account_circle",
+        "label": "name",
+        "value": "Name"
+      },
+      {
+        "position": 2,
+        "iconClass": "email",
+        "label": "email",
+        "value": "Email"
+      },
+      {
+        "position": 3,
+        "iconClass": "phone",
+        "label": "phone",
+        "value": "Phone"
+      },
+      {
+        "position": 4,
+        "iconClass": "mode_edit",
+        "label": "message",
+        "value": "Message"
+      },
+      {
+        "position": 5,
+        "iconClass": null,
+        "label": "submit_button",
+        "value": "Send Message"
+      }
+    ]
+  },
+  "about": {
+    "@class": ".AboutBlock",
+    "id": "about",
+    "title": "About me",
+    "position": 1,
+    "name": "Konstantin Shenderov",
+    "positionName": "Test Automation Engineer and Full Stack Developer",
+    "photo": "personal_photo.jpg",
+    "description": "Hello everyone, my name is Konstantin Shenderov. I am ISTQB certified Test Automation Engineer and Full Stack Developer from Israel. I have 7 years of experience in QA and a strong background in full stack web development.",
+    "contacts": [
+      {
+        "position": 1,
+        "iconClass": null,
+        "label": "Location",
+        "value": "Tel Aviv, Israel"
+      },
+      {
+        "position": 2,
+        "iconClass": null,
+        "label": "Phone",
+        "value": "+972-52-7488223"
+      },
+      {
+        "position": 3,
+        "iconClass": null,
+        "label": "Email",
+        "value": "shenderov.k@gmail.com"
+      }
+    ],
+    "mediaLinks": [
+      {
+        "position": 1,
+        "iconClass": "fab fa-facebook-square",
+        "value": "https://www.facebook.com/konstantin.shenderov",
+        "label": "Facebook"
+      },
+      {
+        "position": 2,
+        "iconClass": "fab fa-linkedin",
+        "value": "https://www.linkedin.com/in/shenderov",
+        "label": "LinkedIn"
+      },
+      {
+        "position": 3,
+        "iconClass": "fab fa-skype",
+        "value": "skype:kostya...?chat",
+        "label": "Skype"
+      },
+      {
+        "position": 4,
+        "iconClass": "fab fa-whatsapp-square",
+        "value": "https://wa.me/972527488223",
+        "label": "WhatsApp"
+      },
+      {
+        "position": 5,
+        "iconClass": "fab fa-telegram",
+        "value": "https://t.me/shenderov_k",
+        "label": "Telegram"
+      }
+    ]
+  },
+  "experience": {
+    "@class": ".TimelineBlock",
+    "id": "experience",
+    "title": "Work Experience",
+    "position": 5,
+    "elements": [
+      {
+        "startDate": "2017-10-30T21:00:00.000+0000",
+        "endDate": null,
+        "noEndDate": false,
+        "positionName": "QA Automation Engineer",
+        "organisation": "JFrog",
+        "location": "Netanya, Israel",
+        "description": "As part of the Artifactory team, responsible for the quality and performance of the product as well as passing on suggestions to enhance the customer experience. Develop and implement automated test practices using a wide range of tools focusing on efficiency (primary using Groovy, Geb, and Spock). Develop data loading/generation solutions using various technologies for load/performance testing needs."
+      },
+      {
+        "startDate": "2012-03-30T21:00:00.000+0000",
+        "endDate": "2015-03-30T21:00:00.000+0000",
+        "noEndDate": false,
+        "positionName": "QC/QA Engineer",
+        "organisation": "Avid (former Orad Hi-Tech)",
+        "location": "Kfar Saba, Israel",
+        "description": "QC - Integration testing, troubleshooting and quality control of real-time 3d graphic and video systems for world-leading broadcasters. Close cooperation with the R&D department. QA - Testing new versions of the software, firmware, and hardware. Maintained records and database of the systems tested in a central company repository (logistics, support, etc.)"
+      },
+      {
+        "startDate": "2015-04-30T21:00:00.000+0000",
+        "endDate": "2017-09-30T21:00:00.000+0000",
+        "noEndDate": false,
+        "positionName": "QA Automation Engineer",
+        "organisation": "Viaccess-Orca",
+        "location": "Raanana, Israel",
+        "description": "Develop and implement automated test practices for both web applications and back-end(API) primarily using Selenium Web Driver and SoapUI. Design and create automated configuration scripts and tools using Java and Groovy programming languages. Develop and implement data loading/generation solutions using various technologies for load/performance testing needs. Work with the QA Manager and colleagues to define process and strategy associated with automation. Participate in product design reviews to provide input on functional requirements, product designs, schedules, or potential problems. Perform research of new test tools, practices and technologies in order to improve testing processes and decrease testing time."
+      }
+    ]
+  },
+  "expertise": {
+    "@class": ".ExpertiseBlock",
+    "id": "expertise",
+    "title": "Expertise",
+    "position": 2,
+    "blocks": [
+      {
+        "position": 1,
+        "iconClass": "fa fa-bug",
+        "label": "Software Testing",
+        "value": "As a software test engineer with more than 7 years' of experience in software, hardware, and firmware testing I have deep knowledge in test methodologies and documentation. I am able to plan, develop and execute a wide range of test practices using the most popular tools and approaches."
+      },
+      {
+        "position": 2,
+        "iconClass": "fab fa-whmcs",
+        "label": "QA Automation",
+        "value": "I am developing test automation solutions for Web UI and REST API using a wide range of tools and technologies such as Selenium Web Driver, TestNG, JUnit, Geb, Spock Framework, BrowserStack, SoapUI, automated configuration scripting using Java, Groovy and Bash. I am able to develop and maintain complex testing environments and frameworks for automated tests using Docker, VMs, Jenkins etc. I can generate and load data for performance/load testing."
+      },
+      {
+        "position": 3,
+        "iconClass": "fas fa-infinity",
+        "label": "DevOps",
+        "value": "I am able to configure test and production environments (web and application servers, load balancers, databases, CI/CD tools, NAS, proxy, networks etc.) on different operating systems (Linux, macOS, Windows). I have experience in clouding and virtualization – Amazon Web Services, Google Cloud Platform, VMware, Virtual Box, and containerization – Docker"
+      },
+      {
+        "position": 4,
+        "iconClass": "fa fa-code",
+        "label": "Full-Stack Development",
+        "value": "I am able to develop a web application from an idea to production using modern frameworks and technologies (Java, Spring Boot, Hibernate, HTML5, CSS3, AngularJS)."
+      },
+      {
+        "position": 5,
+        "iconClass": "fa fa-server",
+        "label": "Back-End Development",
+        "value": "I have strong knowledge of Core Java, Spring Framework, Spring Boot, Hibernate, JDBC. I am able to develop a back-end application, store, fetch and process data using SQL and NoSQL databases, create REST APIs. My code is clean and has a good unit test coverage."
+      },
+      {
+        "position": 6,
+        "iconClass": "fab fa-chrome",
+        "label": "Front-End Development",
+        "value": "I am able to develop a front-end application using a wide range of modern frameworks and technologies - HTML5, CSS3, JavaScript, Angular JS, jQuery. My applications have a responsive design and tested on different browsers and platforms."
+      }
+    ]
+  }
+}
