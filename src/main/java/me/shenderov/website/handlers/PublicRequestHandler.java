@@ -9,6 +9,7 @@ import me.shenderov.website.repositories.BlockRepository;
 import me.shenderov.website.repositories.MessageRepository;
 import me.shenderov.website.repositories.SeoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,15 +29,17 @@ public class PublicRequestHandler implements IPublicRequestHandler {
     @Autowired
     private MessageRepository messageRepository;
 
-    @Override
+    @Cacheable({"seo"})
     public SeoInfo getSeoData() throws Exception {
         return seoRepository.findById(1).orElseThrow(() -> new Exception(String.format("Seo Data is not found")));
     }
 
+    @Cacheable({"blocks"})
     public Block getBlock(String id) throws Exception {
         return blockRepository.findById(id).orElseThrow(() -> new Exception(String.format("Block with id: %s not found", id)));
     }
 
+    @Cacheable({"blocks"})
     public Map<String, Block> getBlocks(List<String> ids) {
         Map<String, Block> blocks = new HashMap<>();
         for(Block b : blockRepository.findAllById(ids)){
