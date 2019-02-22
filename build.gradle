@@ -29,28 +29,25 @@ configurations {
 }
 
 dependencies {
-//	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-web')
-//	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-//	compile('org.springframework.mobile:spring-mobile-device:1.1.5.RELEASE')
-
 	compile('org.springframework.boot:spring-boot-starter-cache')
-	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.1'
-	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
-//	compile('org.springframework.boot:spring-boot-devtools')
-	//compile('com.h2database:h2:1.4.196')
-//	compile('mysql:mysql-connector-java:5.1.6')
+	compile('org.springframework.boot:spring-boot-starter-mail')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.apache.logging.log4j:log4j-api:2.11.1')
+	compile('org.apache.logging.log4j:log4j-core:2.11.1')
+
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
-	compile('org.springframework.boot:spring-boot-starter-cache')
+//	compile('org.springframework.boot:spring-boot-starter-data-rest')
+//	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+//	compile('org.springframework.mobile:spring-mobile-device:1.1.5.RELEASE')
+//	compile('org.springframework.boot:spring-boot-devtools')
 //	implementation('org.springframework.boot:spring-boot-starter-data-rest')
-	compile('org.springframework.boot:spring-boot-starter-mail')
 //	implementation('org.springframework.boot:spring-boot-starter-security')
 //	implementation('org.springframework.boot:spring-boot-starter-web')
 //	compile 'org.springframework.boot:spring-boot-starter-web'
-//	compile('org.springframework.boot:spring-boot-devtools')
-//	runtimeOnly('com.h2database:h2')
 //	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 //	compile('org.springframework.boot:spring-boot-starter-test')
 //	testImplementation('org.springframework.security:spring-security-test')

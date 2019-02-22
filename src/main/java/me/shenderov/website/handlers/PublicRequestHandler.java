@@ -8,6 +8,7 @@ import me.shenderov.website.interfaces.IPublicRequestHandler;
 import me.shenderov.website.repositories.BlockRepository;
 import me.shenderov.website.repositories.MessageRepository;
 import me.shenderov.website.repositories.SeoRepository;
+import me.shenderov.website.services.MessageScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 
@@ -28,6 +29,9 @@ public class PublicRequestHandler implements IPublicRequestHandler {
 
     @Autowired
     private MessageRepository messageRepository;
+
+    @Autowired
+    private MessageScheduler messageScheduler;
 
     @Cacheable({"seo"})
     public SeoInfo getSeoData() throws Exception {
@@ -50,8 +54,9 @@ public class PublicRequestHandler implements IPublicRequestHandler {
 
     public MessageWrapper sendMessage(Message message) {
         MessageWrapper wrapper = new MessageWrapper(message);
-        //TODO implement email sender
+        wrapper = messageRepository.insert(wrapper);
+        messageScheduler.sendFormMessage(wrapper);
         LOGGER.info(wrapper.toString());
-        return messageRepository.insert(wrapper);
+        return wrapper;
     }
 }

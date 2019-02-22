@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
-@PropertySource({"classpath:db.properties", "classpath:build.properties"})
+@PropertySource({"classpath:db.properties", "classpath:build.properties", "classpath:email.properties"})
 public class ApplicationConfig {
 
     @Bean
