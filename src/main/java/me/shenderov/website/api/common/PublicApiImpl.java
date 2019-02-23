@@ -44,9 +44,9 @@ public class PublicApiImpl {
     }
 
     @RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
-    public Message sendMessage(@RequestBody Message message, HttpServletRequest request) {
+    public Message sendMessage(@RequestParam(name="g-recaptcha-response", required = false) String recaptchaResponse, @RequestBody Message message, HttpServletRequest request) throws Exception {
         LOGGER.info(request.getRemoteAddr()+"/sendMessage|");
-        return requestHandler.sendMessage(message).getMessage();
+        return requestHandler.sendMessage(message, recaptchaResponse).getMessage();
     }
 
 }

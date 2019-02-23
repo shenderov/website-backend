@@ -4,12 +4,16 @@ import me.shenderov.website.dao.Block;
 import me.shenderov.website.dao.MessageWrapper;
 import me.shenderov.website.dao.SeoInfo;
 import me.shenderov.website.entities.Message;
+import me.shenderov.website.exceptions.MissingParameterException;
+import me.shenderov.website.exceptions.RecaptchaValidationException;
 import me.shenderov.website.interfaces.IPublicRequestHandler;
 import me.shenderov.website.repositories.BlockRepository;
 import me.shenderov.website.repositories.MessageRepository;
 import me.shenderov.website.repositories.SeoRepository;
 import me.shenderov.website.services.MessageScheduler;
+import me.shenderov.website.services.RecapchaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 
 import java.util.HashMap;
@@ -20,6 +24,9 @@ import java.util.logging.Logger;
 public class PublicRequestHandler implements IPublicRequestHandler {
 
     private final static Logger LOGGER = Logger.getLogger(PublicRequestHandler.class.getName());
+
+    @Value("${application.security.enable-recaptcha}")
+    private boolean enableRecaptcha;
 
     @Autowired
     private SeoRepository seoRepository;
@@ -32,6 +39,9 @@ public class PublicRequestHandler implements IPublicRequestHandler {
 
     @Autowired
     private MessageScheduler messageScheduler;
+
+    @Autowired
+    private RecapchaService recapchaService;
 
     @Cacheable({"seo"})
     public SeoInfo getSeoData() throws Exception {
@@ -52,11 +62,24 @@ public class PublicRequestHandler implements IPublicRequestHandler {
         return blocks;
     }
 
-    public MessageWrapper sendMessage(Message message) {
+    public MessageWrapper sendMessage(Message message, String recaptchaResponse) throws Exception {
+        if(enableRecaptcha){
+            validateRecaptcha(recaptchaResponse);
+        }
         MessageWrapper wrapper = new MessageWrapper(message);
         wrapper = messageRepository.insert(wrapper);
-        messageScheduler.sendFormMessage(wrapper);
+        //messageScheduler.sendFormMessage(wrapper);
         LOGGER.info(wrapper.toString());
         return wrapper;
+    }
+
+    private void validateRecaptcha(String recaptchaResponse) throws Exception {
+        if(recaptchaResponse == null){
+            throw new MissingParameterException("Required String parameter 'g-recaptcha-response' is not present");
+        }else if (recapchaService.verifyRecaptcha(recaptchaResponse)){
+            LOGGER.info("Recaptcha successfully validated");
+        }else{
+            throw new RecaptchaValidationException("Recaptcha validation failded");
+        }
     }
 }
