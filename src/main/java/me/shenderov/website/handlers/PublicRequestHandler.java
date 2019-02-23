@@ -68,7 +68,7 @@ public class PublicRequestHandler implements IPublicRequestHandler {
         }
         MessageWrapper wrapper = new MessageWrapper(message);
         wrapper = messageRepository.insert(wrapper);
-        //messageScheduler.sendFormMessage(wrapper);
+        messageScheduler.sendFormMessage(wrapper);
         LOGGER.info(wrapper.toString());
         return wrapper;
     }
