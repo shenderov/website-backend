@@ -16,5 +16,5 @@ public interface IPublicRequestHandler {
 
     Map<String, Block> getBlocks(List<String> id);
 
-    MessageWrapper sendMessage(Message message, String recaptchaResponse) throws Exception;
+    MessageWrapper sendMessage(Message message, String recaptchaResponse);
 }

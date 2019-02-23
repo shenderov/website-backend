@@ -62,7 +62,7 @@ public class PublicRequestHandler implements IPublicRequestHandler {
         return blocks;
     }
 
-    public MessageWrapper sendMessage(Message message, String recaptchaResponse) throws Exception {
+    public MessageWrapper sendMessage(Message message, String recaptchaResponse) {
         if(enableRecaptcha){
             validateRecaptcha(recaptchaResponse);
         }
@@ -73,7 +73,7 @@ public class PublicRequestHandler implements IPublicRequestHandler {
         return wrapper;
     }
 
-    private void validateRecaptcha(String recaptchaResponse) throws Exception {
+    private void validateRecaptcha(String recaptchaResponse) {
         if(recaptchaResponse == null){
             throw new MissingParameterException("Required String parameter 'g-recaptcha-response' is not present");
         }else if (recapchaService.verifyRecaptcha(recaptchaResponse)){
