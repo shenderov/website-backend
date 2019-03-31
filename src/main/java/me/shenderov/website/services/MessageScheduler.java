@@ -20,27 +20,43 @@ public class MessageScheduler {
 
     private final static Logger LOGGER = Logger.getLogger(MessageScheduler.class.getName());
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
+
+    private final MessageRepository messageRepository;
+
+    private final MailContentBuilder mailContentBuilder;
+
+    private final MailService mailService;
 
     @Autowired
-    private MessageRepository messageRepository;
-
-    @Autowired
-    private MailContentBuilder mailContentBuilder;
-
-    @Autowired
-    private MailService mailService;
+    public MessageScheduler(Environment env, MessageRepository messageRepository, MailContentBuilder mailContentBuilder, MailService mailService) {
+        this.env = env;
+        this.messageRepository = messageRepository;
+        this.mailContentBuilder = mailContentBuilder;
+        this.mailService = mailService;
+    }
 
     @Async
     public void sendFormMessage(MessageWrapper wrapper){
-        List<MessageWrapper> messages = new LinkedList<>();
-        messages.add(wrapper);
-        sendMessage(messages, "New Message Received");
+        if(Boolean.parseBoolean(env.getProperty("application.mailer.enable-mailer"))){
+            List<MessageWrapper> messages = new LinkedList<>();
+            messages.add(wrapper);
+            sendMessage(messages, "New Message Received");
+        }else {
+            LOGGER.warning("Mailer disabled, message won't be send");
+        }
     }
 
     @Scheduled(cron = "0 0 0 * * ?")
     public void sendUnsentMessages(){
+        if(Boolean.parseBoolean(env.getProperty("application.mailer.enable-mailer"))){
+            resendMessages();
+        }else {
+            LOGGER.warning("Mailer disabled, resend messages scheduler will skip the iteration");
+        }
+    }
+
+    private void resendMessages(){
         LOGGER.info("Unsent messages resend scheduled");
         List<MessageStatus> statuses = new ArrayList<>();
         statuses.add(MessageStatus.NEW);

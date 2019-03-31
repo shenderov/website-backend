@@ -15,7 +15,6 @@ public class RestControllerExceptionHandler {
 
     @ExceptionHandler({MissingParameterException.class})
     public ResponseEntity badRequest(HttpServletRequest req, MissingParameterException exception) {
-        exception.printStackTrace();
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(new ExceptionWrapper(HttpStatus.BAD_REQUEST, exception, req.getRequestURI()));
@@ -23,7 +22,6 @@ public class RestControllerExceptionHandler {
 
     @ExceptionHandler({RecaptchaValidationException.class})
     public ResponseEntity badRequest(HttpServletRequest req, RecaptchaValidationException exception) {
-        exception.printStackTrace();
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(new ExceptionWrapper(HttpStatus.BAD_REQUEST, exception, req.getRequestURI()));

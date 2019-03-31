@@ -79,6 +79,7 @@ public class PublicRequestHandler implements IPublicRequestHandler {
         }else if (recapchaService.verifyRecaptcha(recaptchaResponse)){
             LOGGER.info("Recaptcha successfully validated");
         }else{
+            LOGGER.warning("Recaptcha validation failded");
             throw new RecaptchaValidationException("Recaptcha validation failded");
         }
     }
