@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow:
+
+Sitemap: https://shenderov.me/sitemap.xml

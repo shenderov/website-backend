@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 ">
+  <url>
+    <loc>https://shenderov.me/</loc>
+    <lastmod>2019-02-23T21:47:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shenderov.me/#about</loc>
+    <lastmod>2019-02-23T21:47:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shenderov.me/#skills</loc>
+    <lastmod>2019-02-23T21:47:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shenderov.me/#languages</loc>
+    <lastmod>2019-02-23T21:47:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shenderov.me/#experience</loc>
+    <lastmod>2019-02-23T21:47:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shenderov.me/#education</loc>
+    <lastmod>2019-02-23T21:47:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shenderov.me/#contact</loc>
+    <lastmod>2019-02-23T21:47:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
