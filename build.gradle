@@ -55,7 +55,7 @@ dependencies {
 //	testImplementation('org.springframework.security:spring-security-test')
 }
 
-war {
-	baseName = 'website'
-	version = '0.0.1-SNAPSHOT-' + System.currentTimeMillis();
+task copyWar(type: Copy) {
+	from file("$buildDir/libs/website-1.0.3-SNAPSHOT.war")
+	into file("$projectDir/")
 }
