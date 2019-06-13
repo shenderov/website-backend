@@ -54,3 +54,8 @@ dependencies {
 //	compile('org.springframework.boot:spring-boot-starter-test')
 //	testImplementation('org.springframework.security:spring-security-test')
 }
+
+war {
+	baseName = 'website'
+	version = '0.0.1-SNAPSHOT-' + System.currentTimeMillis();
+}
