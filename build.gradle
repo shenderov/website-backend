@@ -56,14 +56,7 @@ dependencies {
 }
 
 artifactory {
-//	contextUrl = 'http://192.168.1.200:8081/artifactory' // base artifactory url
 	publish {
-//		repository {
-//			repoKey = 'gradle-dev-local'   // Artifactory repository key to publish to
-//			username = 'publisher'      // publisher user name
-//			password = '1qa2ws3ed'       // publisher password
-//			maven = false
-//		}
 		publishBuildInfo = true
 		publishArtifacts = true
 		defaults {
@@ -75,18 +68,3 @@ artifactory {
 artifactoryPublish {
 	dependsOn bootWar
 }
-
-//task sourcesJar(type: Jar, dependsOn: classes) {
-//	classifier = 'sources'
-//	from sourceSets.main.allSource
-//}
-//
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//	classifier = 'javadoc'
-//	from javadoc.destinationDir
-//}
-//
-//artifacts {
-//	archives sourcesJar
-//	archives javadocJar
-//}
