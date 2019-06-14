@@ -56,7 +56,7 @@ dependencies {
 }
 
 artifactory {
-	contextUrl = 'http://192.168.1.200:8081/artifactory' // base artifactory url
+//	contextUrl = 'http://192.168.1.200:8081/artifactory' // base artifactory url
 	publish {
 //		repository {
 //			repoKey = 'gradle-dev-local'   // Artifactory repository key to publish to
