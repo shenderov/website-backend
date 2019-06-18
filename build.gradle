@@ -69,6 +69,10 @@ artifactoryPublish {
 	dependsOn bootWar
 }
 
+artifactoryDeploy {
+	dependsOn bootWar
+}
+
 bootWar {
 	archiveName = getWarName()
 }
