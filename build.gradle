@@ -60,7 +60,7 @@ artifactory {
 		publishBuildInfo = true
 		publishArtifacts = true
 		defaults {
-			publishConfigs('archives')
+			publishConfigs('archives', 'published')
 		}
 	}
 }
