@@ -70,7 +70,7 @@ artifactoryPublish {
 }
 
 artifactoryDeploy {
-	dependsOn bootWar
+	dependsOn artifactoryPublish
 }
 
 bootWar {
@@ -79,5 +79,5 @@ bootWar {
 
 def getWarName() {
     String jenkinsBuild = System.env.BUILD_NUMBER == null ? "" : "-$System.env.BUILD_NUMBER"
-	return String.format("%s-%s%s.war", rootProject.name, version, jenkinsBuild)
+	return String.format("yyy-%s-%s%s.war", rootProject.name, version, jenkinsBuild)
 }
