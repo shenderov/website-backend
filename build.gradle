@@ -5,6 +5,9 @@ buildscript {
 	ext {
 		springBootVersion = '2.1.3.RELEASE'
 		globals = new Globals()
+		versionMajor = 1
+		versionMinor = 2
+
 	}
 	repositories {
 		jcenter()
@@ -32,7 +35,6 @@ repositories {
 
 configurations {
 	providedRuntime
-	println "value of BUILD_NUMBER = " + globals.buildNr
 }
 
 dependencies {
@@ -72,4 +74,13 @@ artifactory {
 
 artifactoryPublish {
 	dependsOn bootWar
+}
+
+blablaa {
+	println computeVersionCode()
+}
+
+def computeVersionCode() {
+	// Major + minor + Jenkins build number (where available)
+	return (versionMajor * 100000) + (versionMinor * 10000) + Integer.valueOf(System.env.BUILD_NUMBER ?: 0)
 }
