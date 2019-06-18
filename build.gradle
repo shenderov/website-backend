@@ -75,6 +75,6 @@ task blabla() {
 }
 
 def getWarName() {
-	def name = "$rootProject.name-$version-$System.env.BUILD_NUMBER.war"
-	return name
+    String jenkinsBuild = System.env.BUILD_NUMBER == null ? "" : "-$System.env.BUILD_NUMBER"
+	return String.format("%s-%s%s.war", rootProject.name, version, jenkinsBuild)
 }
