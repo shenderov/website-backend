@@ -18,8 +18,8 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 apply plugin: 'com.jfrog.artifactory'
 
-group = 'me.shenderov'
-version = '1.0.x-SNAPSHOT'
+group = "me.shenderov"
+version = "1.0.x-SNAPSHOT-$System.env.BUILD_NUMBER"
 sourceCompatibility = 1.8
 
 repositories {
@@ -60,7 +60,7 @@ artifactory {
 		publishBuildInfo = true
 		publishArtifacts = true
 		defaults {
-			publishConfigs('archives', 'published')
+			publishConfigs('archives')
 		}
 	}
 }
@@ -79,5 +79,5 @@ bootWar {
 
 def getWarName() {
     String jenkinsBuild = System.env.BUILD_NUMBER == null ? "" : "-$System.env.BUILD_NUMBER"
-	return String.format("yyy-%s-%s%s.war", rootProject.name, version, jenkinsBuild)
+	return String.format("%s-%s%s.war", rootProject.name, version, jenkinsBuild)
 }
