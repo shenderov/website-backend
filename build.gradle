@@ -19,7 +19,7 @@ apply plugin: 'war'
 apply plugin: 'com.jfrog.artifactory'
 
 group = "me.shenderov"
-version = "1.0.x-SNAPSHOT-$System.env.BUILD_NUMBER"
+version = "1.0.x-SNAPSHOT${geBuildNumber()}"
 sourceCompatibility = 1.8
 
 repositories {
@@ -69,15 +69,6 @@ artifactoryPublish {
 	dependsOn bootWar
 }
 
-artifactoryDeploy {
-	dependsOn artifactoryPublish
-}
-
-bootWar {
-	archiveName = getWarName()
-}
-
-def getWarName() {
-    String jenkinsBuild = System.env.BUILD_NUMBER == null ? "" : "-$System.env.BUILD_NUMBER"
-	return String.format("%s-%s%s.war", rootProject.name, version, jenkinsBuild)
+static def geBuildNumber() {
+	return System.env.BUILD_NUMBER == null ? "" : "-$System.env.BUILD_NUMBER"
 }
