@@ -65,7 +65,11 @@ artifactory {
 	}
 }
 
-artifactoryPublish {
+//artifactoryPublish {
+//	dependsOn bootWar
+//}
+
+artifactoryDeploy {
 	dependsOn bootWar
 }
 
