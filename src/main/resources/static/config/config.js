@@ -1,5 +1,5 @@
-const config = {
+var config = {
     "hostname": ".",
-    "enableRecaptcha": true,
+    "enableRecaptcha": false,
     "recaptchaSiteKey": "6LctWpMUAAAAAJaEEtevRDBQ5oBsEgFcH69Qnj0L"
 };

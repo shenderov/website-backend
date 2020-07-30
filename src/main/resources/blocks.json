@@ -1,6 +1,6 @@
 {
   "skills": {
-    "@class": ".SkillsBlock",
+    "classType": "me.shenderov.website.dao.SkillsBlock",
     "id": "skills",
     "title": "Skills",
     "position": 3,
@@ -92,7 +92,7 @@
     ]
   },
   "education": {
-    "@class": ".TimelineBlock",
+    "classType": "me.shenderov.website.dao.TimelineBlock",
     "id": "education",
     "title": "Education",
     "position": 6,
@@ -136,7 +136,7 @@
     ]
   },
   "languages": {
-    "@class": ".SkillsBlock",
+    "classType": "me.shenderov.website.dao.SkillsBlock",
     "id": "languages",
     "title": "Languages",
     "position": 4,
@@ -162,7 +162,7 @@
     ]
   },
   "contact": {
-    "@class": ".ContactBlock",
+    "classType": "me.shenderov.website.dao.ContactBlock",
     "id": "contact",
     "title": "Contact Form",
     "position": 7,
@@ -200,7 +200,7 @@
     ]
   },
   "about": {
-    "@class": ".AboutBlock",
+    "classType": "me.shenderov.website.dao.AboutBlock",
     "id": "about",
     "title": "About me",
     "position": 1,
@@ -262,14 +262,23 @@
     ]
   },
   "experience": {
-    "@class": ".TimelineBlock",
+    "classType": "me.shenderov.website.dao.TimelineBlock",
     "id": "experience",
     "title": "Work Experience",
     "position": 5,
     "elements": [
       {
-        "startDate": "2017-10-30T21:00:00.000+0000",
+        "startDate": "2020-01-29T21:00:00.000+0000",
         "endDate": null,
+        "noEndDate": false,
+        "positionName": "QA Automation Engineer",
+        "organisation": "Farmers Edge",
+        "location": "Winnipeg, Canada",
+        "description": "Close work with QA Manager and the product team to create a testing strategy. Determination of the company’s test automation needs, evaluating and selecting test automation tools and libraries. Test automation framework architecture and development from scratch according to determined testing strategy. Close cooperation with developers and DevOps team for test automation project integration into the company’s CI/CD environment. Maintaining a repository of created test scripts and tools."
+      },
+      {
+        "startDate": "2017-10-30T21:00:00.000+0000",
+        "endDate": "2019-11-14T21:00:00.000+0000",
         "noEndDate": false,
         "positionName": "QA Automation Engineer",
         "organisation": "JFrog",
@@ -297,7 +306,7 @@
     ]
   },
   "expertise": {
-    "@class": ".ExpertiseBlock",
+    "classType": "me.shenderov.website.dao.ExpertiseBlock",
     "id": "expertise",
     "title": "Expertise",
     "position": 2,

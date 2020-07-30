@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface IPublicRequestHandler {
 
-    SeoInfo getSeoData() throws Exception;
+    SeoInfo getSeoData(Integer id) throws Exception;
 
     Block getBlock(String id) throws Exception;
 

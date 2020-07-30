@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-@RequestMapping(path = "/")
+@RequestMapping(path = "/public")
 @RestController
 public class PublicApiImpl {
 
@@ -26,9 +26,9 @@ public class PublicApiImpl {
     }
 
     @RequestMapping(value = "/seo", method = RequestMethod.GET)
-    public SeoInfo getSeoData(HttpServletRequest request) throws Exception {
+    public SeoInfo getSeoData(@RequestParam(name = "id", defaultValue = "1") Integer id, HttpServletRequest request) throws Exception {
         LOGGER.info(request.getRemoteAddr()+"/seo|");
-        return requestHandler.getSeoData();
+        return requestHandler.getSeoData(id);
     }
 
     @RequestMapping(value = "/block", method = RequestMethod.GET)

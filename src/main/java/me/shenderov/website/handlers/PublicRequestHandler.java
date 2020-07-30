@@ -44,8 +44,8 @@ public class PublicRequestHandler implements IPublicRequestHandler {
     private RecapchaService recapchaService;
 
     @Cacheable({"seo"})
-    public SeoInfo getSeoData() throws Exception {
-        return seoRepository.findById(1).orElseThrow(() -> new Exception(String.format("Seo Data is not found")));
+    public SeoInfo getSeoData(Integer id) throws Exception {
+        return seoRepository.findById(id).orElseThrow(() -> new Exception(String.format("Seo Data with id: %d is not found", id)));
     }
 
     @Cacheable({"blocks"})

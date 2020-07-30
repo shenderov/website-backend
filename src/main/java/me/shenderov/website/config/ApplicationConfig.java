@@ -1,9 +1,12 @@
 package me.shenderov.website.config;
 
+import com.mongodb.MongoClientOptions;
 import me.shenderov.website.handlers.AdminRequestHandler;
 import me.shenderov.website.handlers.PublicRequestHandler;
+import me.shenderov.website.handlers.SystemRequestHandler;
 import me.shenderov.website.interfaces.IAdminRequestHandler;
 import me.shenderov.website.interfaces.IPublicRequestHandler;
+import me.shenderov.website.interfaces.ISystemRequestHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -38,12 +41,16 @@ public class ApplicationConfig {
     }
 
     @Bean
+    public ISystemRequestHandler systemRequestHandler() {
+        return new SystemRequestHandler();
+    }
+
+    @Bean
     public WebMvcConfigurer mvcConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        //.allowedOrigins("localhost")
                         .allowedMethods("GET", "POST", "PUT", "DELETE");
             }
             @Override
@@ -66,6 +73,17 @@ public class ApplicationConfig {
                         "/*.svg",
                         "/**/*.svg")
                         .setCacheControl(CacheControl.maxAge(1, TimeUnit.DAYS));
+            }
+        };
+    }
+
+    @Bean
+    WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*");
             }
         };
     }

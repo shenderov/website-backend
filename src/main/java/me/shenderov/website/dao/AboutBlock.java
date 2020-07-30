@@ -1,10 +1,10 @@
 package me.shenderov.website.dao;
 
 import me.shenderov.website.entities.GenericElement;
-import me.shenderov.website.entities.MediaLink;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.Objects;
 
 @Document(collection = "block")
 public class AboutBlock extends Block {
@@ -61,5 +61,23 @@ public class AboutBlock extends Block {
 
     public void setMediaLinks(List<GenericElement> mediaLinks) {
         this.mediaLinks = mediaLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AboutBlock)) return false;
+        AboutBlock that = (AboutBlock) o;
+        return Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getPositionName(), that.getPositionName()) &&
+                Objects.equals(getPhoto(), that.getPhoto()) &&
+                Objects.equals(getDescription(), that.getDescription()) &&
+                Objects.equals(getContacts(), that.getContacts()) &&
+                Objects.equals(getMediaLinks(), that.getMediaLinks());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getPositionName(), getPhoto(), getDescription(), getContacts(), getMediaLinks());
     }
 }

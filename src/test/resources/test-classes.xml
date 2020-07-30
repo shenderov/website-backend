@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All tests" parallel="false" thread-count="1">
+    <test name="messages">
+        <classes>
+            <class name="me.shenderov.website.MessageTests"/>
+        </classes>
+    </test>
+    <test name="classes">
+        <classes>
+            <class name="me.shenderov.website.BlockTests"/>
+            <class name="me.shenderov.website.UserTests"/>
+            <class name="me.shenderov.website.SeoTests"/>
+        </classes>
+    </test>
+</suite>

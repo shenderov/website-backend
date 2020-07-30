@@ -1,10 +1,18 @@
 {
   "id": 1,
   "title": "Konstantin Shenderov - Test Automation Engineer and Full Stack Developer",
-  "metaData": {
-    "description": "Konstantin Shenderov - Test Automation Engineer and Full Stack Developer",
-    "keywords": "qa, test automation, test automation engineer, devops, full stack developer, cv, portfolio, projects, spring, angular, front end developer, back end developer",
-    "author": "Konstantin Shenderov"
-  },
+  "metaData": [
+    {
+      "name": "description",
+      "content": "Konstantin Shenderov - Test Automation Engineer and Full Stack Developer"
+    },
+    {
+      "name": "keywords",
+      "content": "qa, test automation, test automation engineer, devops, full stack developer, cv, portfolio, projects, spring, angular, front end developer, back end developer"
+    },
+    {
+      "name": "author",
+      "content": "Konstantin Shenderov"
+    }],
   "footerCopyright": "© 2019 Konstantin Shenderov (v1.0.3)"
 }
