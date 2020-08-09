@@ -1,0 +1,39 @@
+<div>
+    <form class="w3-container">
+        <div class="w3-row-padding">
+            <div class="w3-col">
+                <label>Title:</label>
+                <input class="w3-input w3-border" type="text" ng-model="seo.title">
+            </div>
+        </div>
+        <div class="w3-row-padding">
+            <div class="w3-col w3-margin-top">
+                <label>Footer Copyright:</label>
+                <input class="w3-input w3-border" type="text" ng-model="seo.footerCopyright">
+            </div>
+        </div>
+        <h6 class="w3-margin-left w3-margin-top"><strong>Metadata:</strong></h6>
+        <div class="w3-row-padding generic-element-container" ng-repeat="m in seo.metaData">
+            <div class="w3-quarter delete-metadata-icon">
+                <span><i class="fa fa-close" ng-click="seo.metaData.splice($index, 1)"></i></span>
+            </div>
+            <div class="w3-quarter">
+                <label>Name:</label>
+                <input class="w3-input w3-border" type="text" ng-model="m.name">
+            </div>
+            <div class="w3-rest">
+                <label>Content:</label>
+                <input class="w3-input w3-border" type="text" ng-model="m.content">
+            </div>
+        </div>
+        <span>
+    <button class="w3-button w3-border w3-white" ng-click="seo.metaData.push({})">Add...</button>
+</span>
+    </form>
+    <div class="w3-container w3-border-top w3-padding-16 w3-margin-top w3-right-align">
+        <button ng-click="save(seo)" type="button" class="w3-button w3-blue">Save</button>
+    </div>
+</div>
+
+
+

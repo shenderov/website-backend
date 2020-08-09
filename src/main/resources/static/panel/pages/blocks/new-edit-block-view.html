@@ -1,0 +1,30 @@
+<div>
+    <form class="w3-container">
+        <div class="w3-row-padding">
+            <div class="w3-quarter">
+                <label>ID:</label>
+                <input class="w3-input w3-border" type="text" ng-model="block.id" ng-disabled="blockId">
+            </div>
+            <div class="w3-half">
+                <label>Class Type:</label>
+                <input class="w3-input w3-border" type="text" ng-model="block.classType" disabled>
+            </div>
+            <div class="w3-quarter">
+                <label>Position:</label>
+                <input class="w3-input w3-border" type="number" ng-model="block.position">
+            </div>
+        </div>
+        <div class="w3-row-padding">
+            <div class="w3-col">
+                <label>Title:</label>
+                <input class="w3-input w3-border" type="text" ng-model="block.title">
+            </div>
+        </div>
+        <div ng-include="template" ></div>
+    </form>
+    <div class="w3-container w3-border-top w3-padding-16 w3-margin-top w3-right-align">
+        <button ng-click="cancel()" type="button" class="w3-button w3-white">Cancel</button>
+        <button ng-click="save(block)" type="button" class="w3-button w3-blue">Save</button>
+    </div>
+</div>
+

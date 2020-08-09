@@ -1,8 +1,8 @@
 package me.shenderov.website.api.common;
 
-import me.shenderov.website.entities.SystemCpuInfo;
-import me.shenderov.website.entities.SystemDiskInfo;
-import me.shenderov.website.entities.SystemMemoryInfo;
+import me.shenderov.website.entities.system.SystemCpuInfo;
+import me.shenderov.website.entities.system.SystemDiskInfo;
+import me.shenderov.website.entities.system.SystemMemoryInfo;
 import me.shenderov.website.interfaces.ISystemRequestHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -41,5 +41,11 @@ public class SystemApiImpl {
     public SystemCpuInfo getCpuInfo(HttpServletRequest request) {
         LOGGER.info(request.getRemoteAddr()+"/getCpuInfo|");
         return requestHandler.getCpuInfo();
+    }
+
+    @RequestMapping(value = "/ping", method = RequestMethod.GET)
+    public String ping(HttpServletRequest request) {
+        LOGGER.info(request.getRemoteAddr()+"/ping|");
+        return "ok";
     }
 }

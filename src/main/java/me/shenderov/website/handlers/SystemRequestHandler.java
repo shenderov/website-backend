@@ -1,8 +1,8 @@
 package me.shenderov.website.handlers;
 
-import me.shenderov.website.entities.SystemCpuInfo;
-import me.shenderov.website.entities.SystemDiskInfo;
-import me.shenderov.website.entities.SystemMemoryInfo;
+import me.shenderov.website.entities.system.SystemCpuInfo;
+import me.shenderov.website.entities.system.SystemDiskInfo;
+import me.shenderov.website.entities.system.SystemMemoryInfo;
 import me.shenderov.website.interfaces.ISystemRequestHandler;
 
 import java.io.File;

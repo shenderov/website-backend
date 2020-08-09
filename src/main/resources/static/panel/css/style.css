@@ -1,0 +1,83 @@
+html, body, h1, h2, h3, h4, h5 {
+  font-family: "Raleway", sans-serif; }
+
+#navbar > span {
+  color: #fff; }
+
+#message-table :not(thead) tr :not(:first-child) {
+  cursor: pointer; }
+
+#blocks-table :not(thead) tr {
+  cursor: pointer; }
+
+#blocks-table td:last-child {
+  cursor: auto; }
+
+#user-table :not(thead) tr {
+  cursor: pointer; }
+
+#user-table td:last-child, #user-table td:nth-last-child(-n+2) {
+  cursor: auto; }
+
+.position-selector {
+  width: 15% !important; }
+
+.position-selector span {
+  display: inline-block; }
+
+.position-selector span i {
+  cursor: pointer; }
+
+.position-input {
+  width: 60px; }
+
+.position-input input {
+  border-bottom: none;
+  text-align: center;
+  font-weight: bold; }
+
+.edit-user-reset-password-button {
+  margin-top: 22px; }
+
+.edit-user-enabled-check {
+  margin-top: 2px; }
+
+.edit-user-date-picker {
+  height: 40px; }
+
+.delete-metadata-icon {
+  width: 30px !important;
+  margin-top: 28px;
+  cursor: pointer; }
+
+.generic-element-container {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px !important;
+  margin-bottom: 5px; }
+
+.expertise-element-container {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px !important;
+  margin-bottom: 20px; }
+
+.expertise-label {
+  margin-right: 8px; }
+
+.profile-image-placeholder {
+  border: solid 3px #ccc;
+  width: 250px;
+  height: 300px;
+  padding-top: 20%;
+  color: #ccc; }
+
+.timeline-element-container {
+  margin-bottom: 30px;
+  border-bottom: solid 3px #ccc;
+  padding-bottom: 30px; }
+
+.timeline-no-end-date-checkbox {
+  width: 100px !important;
+  margin-top: 15px; }
+
+.clickable-list li {
+  cursor: pointer; }

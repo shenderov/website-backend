@@ -3,6 +3,7 @@ package me.shenderov.website;
 import me.shenderov.website.common.http.HttpResponse;
 import me.shenderov.website.common.http.HttpResponseJson;
 import me.shenderov.website.dao.SeoInfo;
+import me.shenderov.website.entities.MetadataElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,13 +14,19 @@ import static org.testng.Assert.*;
 
 public class SeoTests extends WebsiteApplicationTests {
 
-    private Map<String, String> metaData;
+    private List<MetadataElement> metaData;
 
     @BeforeClass
     public void setup() {
-        metaData = new HashMap<>();
-        metaData.put("author", "Konstantin Shenderov");
-        metaData.put("keywords", "qa, test automation, test automation engineer");
+        metaData = new ArrayList<>();
+        MetadataElement el1 = new MetadataElement();
+        el1.setName("author");
+        el1.setContent("Konstantin Shenderov");
+        MetadataElement el2 = new MetadataElement();
+        el2.setName("keywords");
+        el2.setContent("qa, test automation, test automation engineer");
+        metaData.add(el1);
+        metaData.add(el2);
     }
 
     @AfterClass

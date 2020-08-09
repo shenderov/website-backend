@@ -4,15 +4,15 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.shenderov.website.dao.Block;
 import me.shenderov.website.dao.SeoInfo;
-import me.shenderov.website.repositories.AuthorityRepository;
-import me.shenderov.website.repositories.BlockRepository;
-import me.shenderov.website.repositories.SeoRepository;
-import me.shenderov.website.repositories.UserRepository;
+import me.shenderov.website.dao.settings.ApplicationSettings;
+import me.shenderov.website.dao.settings.EmailSettings;
+import me.shenderov.website.repositories.*;
 import me.shenderov.website.security.dao.Authority;
 import me.shenderov.website.security.dao.AuthorityName;
 import me.shenderov.website.security.dao.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.annotation.PostConstruct;
@@ -53,7 +53,7 @@ public class DataInitializer {
     private boolean updateOnStartup;
 
     @PostConstruct
-    public void initiateData() throws IOException {
+    public void initiateData() throws Exception {
         if(initiateOnStartup){
             LOGGER.info("Starting to run initiate methods...");
             insertDefaultBlocks();
@@ -63,6 +63,18 @@ public class DataInitializer {
         createDefaultAdmin();
         checkDefaultAdminPassword();
     }
+
+//    private void setSettings() throws Exception {
+//        //ApplicationSettings applicationSettings = (ApplicationSettings) settingsRepository.findById("application").orElseThrow(() -> new Exception("Settings entry with id: 'application' is not found"));
+//        //EmailSettings emailSettings = (EmailSettings) settingsRepository.findById("email").orElseThrow(() -> new Exception("Settings entry with id: 'email' is not found"));
+//        setEmailSettings(null);
+//    }
+//
+//    private void setEmailSettings(EmailSettings emailSettings){
+//        System.out.println("emailSettings");
+//        //System.setProperty("application.mailer.enable-mailer", "false");
+//
+//    }
 
     private void insertAuthorities() throws IOException{
         Set <Authority> authorities = mapper.readValue(new File(Objects.requireNonNull(classLoader.getResource(AUTHORITIES_JSON)).getFile()), new TypeReference<Set<Authority>>() {});

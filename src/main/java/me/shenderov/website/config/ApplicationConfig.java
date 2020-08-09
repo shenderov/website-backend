@@ -1,6 +1,5 @@
 package me.shenderov.website.config;
 
-import com.mongodb.MongoClientOptions;
 import me.shenderov.website.handlers.AdminRequestHandler;
 import me.shenderov.website.handlers.PublicRequestHandler;
 import me.shenderov.website.handlers.SystemRequestHandler;
@@ -9,12 +8,15 @@ import me.shenderov.website.interfaces.IPublicRequestHandler;
 import me.shenderov.website.interfaces.ISystemRequestHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.CacheControl;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.concurrent.TimeUnit;
@@ -26,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationConfig {
 
     @Bean
+    //@DependsOn("setApplicationSettings")
     public DataInitializer dataInitializer() {
         return new DataInitializer();
     }
@@ -53,26 +56,20 @@ public class ApplicationConfig {
                 registry.addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE");
             }
+
+            @Override
+            public void addViewControllers(ViewControllerRegistry registry) {
+                registry.addViewController("/").setViewName("forward:/index.html");
+                registry.addViewController("/panel").setViewName("forward:/panel/login.html");
+                registry.addViewController("/panel/").setViewName("forward:/panel/login.html");
+                registry.addViewController("/panel?error=true").setViewName("forward:/panel/login.html?error=true");
+            }
+
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
-                registry.addResourceHandler("/")
-                        .addResourceLocations("/*.html",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js",
-                        "/*.jpg",
-                        "/**/*.jpg",
-                        "/*.eot",
-                        "/**/*.eot",
-                        "/*.woff",
-                        "/**/*.woff",
-                        "/*.woff2",
-                        "/**/*.woff2",
-                        "/*.ttf",
-                        "/**/*.ttf",
-                        "/*.svg",
-                        "/**/*.svg")
-                        .setCacheControl(CacheControl.maxAge(1, TimeUnit.DAYS));
+                registry.addResourceHandler("/**").addResourceLocations("classpath:/static/front/");
+                registry.addResourceHandler("/panel/**").addResourceLocations("classpath:/static/panel/");
+                //registry.addResourceHandler("/auth/**").addResourceLocations("classpath:/static/auth/");
             }
         };
     }

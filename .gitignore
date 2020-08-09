@@ -7,7 +7,7 @@
 .classpath
 .factorypath
 .project
-.settings
+.abstractApplicationSettings
 .springBeans
 .sts4-cache
 

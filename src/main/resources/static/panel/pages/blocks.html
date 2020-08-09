@@ -1,0 +1,35 @@
+<div class="container w3-margin-bottom">
+    <button class="w3-button w3-blue" ng-click="modalOpen=true"><i class="fa fa-plus"></i></button>
+</div>
+<table id="blocks-table" class="w3-table-all w3-hoverable w3-margin-bottom">
+    <thead>
+    <tr class="w3-blue">
+        <th>Position</th>
+        <th>ID</th>
+        <th>Type</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tr ng-repeat="b in blocks">
+        <td ng-click="editBlock(b.id)">{{b.position}}</td>
+        <td ng-click="editBlock(b.id)">{{b.id}}</td>
+        <td ng-click="editBlock(b.id)">{{b.classType}}</td>
+        <td><button class="w3-button w3-tiny w3-red" ng-click="deleteBlock(b.id)">Delete</button></td>
+    </tr>
+</table>
+<div class="w3-modal" ng-if="modalOpen" style="display: block">
+    <div class="w3-modal-content">
+        <header class="w3-container w3-blue">
+        <span ng-click="closeModal()" class="w3-button w3-display-topright">&times;</span>
+            <h2>Choose Block Type:</h2>
+        </header>
+        <div class="w3-container">
+            <ul class="w3-ul w3-hoverable clickable-list">
+                <li ng-repeat="block in blockTypes" ng-click="addBlock(block)">{{block}}</li>
+            </ul>
+        </div>
+        <footer class="w3-container w3-blue w3-padding w3-right-align">
+            <button class="w3-button w3-white" ng-click="closeModal()">Close</button>
+        </footer>
+    </div>
+</div>
