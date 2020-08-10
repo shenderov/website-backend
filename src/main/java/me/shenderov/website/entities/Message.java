@@ -1,5 +1,7 @@
 package me.shenderov.website.entities;
 
+import java.util.Objects;
+
 public class Message {
 
     private String name;
@@ -47,5 +49,21 @@ public class Message {
                 ", phone='" + phone + '\'' +
                 ", message='" + message + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Message)) return false;
+        Message message1 = (Message) o;
+        return getName().equals(message1.getName()) &&
+                getEmail().equals(message1.getEmail()) &&
+                Objects.equals(getPhone(), message1.getPhone()) &&
+                getMessage().equals(message1.getMessage());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getEmail(), getPhone(), getMessage());
     }
 }

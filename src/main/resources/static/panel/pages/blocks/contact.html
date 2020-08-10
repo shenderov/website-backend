@@ -1,0 +1,27 @@
+<h6 class="w3-margin-left w3-margin-top"><strong>Form Labels:</strong></h6>
+<div class="w3-row-padding generic-element-container" ng-repeat="l in block.formLabels" data-ng-init="sortPositionedArray(block.formLabels)">
+    <div class="w3-quarter position-selector">
+        <span><i class="fa fa-close" ng-click="deletePositionedArrayRow(block.formLabels, $index)"></i></span>
+        <span class="position-input">
+            <label>Position:</label>
+            <input class="w3-input ==" type="text" ng-model="l.position" disabled>
+        </span>
+        <span><i class="fa fa-arrow-up" ng-click="moveUp(block.formLabels, $index)"></i></span>
+        <span><i class="fa fa-arrow-down" ng-click="moveDown(block.formLabels, $index)"></i></span>
+    </div>
+    <div class="w3-quarter">
+        <label>Icon Class:</label>
+        <input class="w3-input w3-border" type="text" ng-model="l.iconClass">
+    </div>
+    <div class="w3-quarter">
+        <label>Label:</label>
+        <input class="w3-input w3-border" type="text" ng-model="l.label">
+    </div>
+    <div class="w3-rest">
+        <label>Value:</label>
+        <input class="w3-input w3-border" type="text" ng-model="l.value">
+    </div>
+</div>
+<span>
+    <button class="w3-button w3-border w3-white" ng-click="block.formLabels.push({position: block.formLabels.length+1})">Add...</button>
+</span>

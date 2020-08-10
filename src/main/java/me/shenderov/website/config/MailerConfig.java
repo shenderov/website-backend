@@ -3,6 +3,7 @@ package me.shenderov.website.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
@@ -35,7 +36,9 @@ public class MailerConfig {
     private boolean enableMailer;
 
     @Bean
+    @DependsOn("setEmailSettings")
     public JavaMailSender javaMailSender() {
+        System.out.println("javaMailSender");
         System.setProperty("application.mailer.enable-mailer", Boolean.toString(enableMailer));
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         if(enableMailer){

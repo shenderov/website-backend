@@ -1,0 +1,103 @@
+<div class="w3-row-padding">
+    <div class="w3-col">
+        <label>Name:</label>
+        <input class="w3-input w3-border" type="text" value="{{block.name}}">
+    </div>
+</div>
+<div class="w3-row-padding">
+    <div class="w3-col">
+        <label>Position Name:</label>
+        <input class="w3-input w3-border" type="text" value="{{block.positionName}}">
+    </div>
+</div>
+<div class="w3-row-padding">
+    <div class="w3-col">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" class="w3-input w3-border" type="text" ng-model="block.description" rows="8"></textarea>
+    </div>
+</div>
+<h6 class="w3-margin-left w3-margin-top"><strong>Contacts:</strong></h6>
+<div class="w3-row-padding generic-element-container" ng-repeat="c in block.contacts" data-ng-init="sortPositionedArray(block.contacts)">
+    <div class="w3-quarter position-selector">
+        <span><i class="fa fa-close" ng-click="deletePositionedArrayRow(block.formLabels, $index)"></i></span>
+        <span class="position-input">
+            <label>Position:</label>
+            <input class="w3-input w3-border" type="number" value="{{c.position}}">
+        </span>
+        <span><i class="fa fa-arrow-up" ng-click="moveUp(block.formLabels, $index)"></i></span>
+        <span><i class="fa fa-arrow-down" ng-click="moveDown(block.formLabels, $index)"></i></span>
+    </div>
+    <div class="w3-quarter">
+        <label>Label:</label>
+        <input class="w3-input w3-border" type="text" value="{{c.label}}">
+    </div>
+    <div class="w3-rest">
+        <label>Value:</label>
+        <input class="w3-input w3-border" type="text" value="{{c.value}}">
+    </div>
+</div>
+<span>
+    <button class="w3-button w3-border w3-white" ng-click="block.contacts.push({})">Add...</button>
+</span>
+<h6 class="w3-margin-left w3-margin-top"><strong>Media Links:</strong></h6>
+<div class="w3-row-padding generic-element-container" ng-repeat="l in block.mediaLinks" data-ng-init="sortPositionedArray(block.mediaLinks)">
+    <div class="w3-quarter position-selector">
+        <span><i class="fa fa-close" ng-click="deletePositionedArrayRow(block.formLabels, $index)"></i></span>
+        <span class="position-input">
+            <label>Position:</label>
+            <input class="w3-input w3-border" type="number" value="{{l.position}}">
+        </span>
+        <span><i class="fa fa-arrow-up"></i></span>
+        <span><i class="fa fa-arrow-down"></i></span>
+    </div>
+    <div class="w3-quarter">
+        <label>Icon Class:</label>
+        <input class="w3-input w3-border" type="text" value="{{l.iconClass}}">
+    </div>
+    <div class="w3-quarter">
+        <label>Label:</label>
+        <input class="w3-input w3-border" type="text" value="{{l.label}}">
+    </div>
+    <div class="w3-rest">
+        <label>Value:</label>
+        <input class="w3-input w3-border" type="text" value="{{l.value}}">
+    </div>
+</div>
+<span>
+    <button class="w3-button w3-border w3-white" ng-click="block.mediaLinks.push({})">Add...</button>
+</span>
+<h6 class="w3-margin-left w3-margin-top"><strong>Profile Picture:</strong></h6>
+<div class="w3-row-padding">
+    <div class="w3-half">
+        <label>Photo:</label>
+        <input class="w3-input w3-border" type="text" value="{{block.photo}}" style="margin-bottom: 20px">
+    </div>
+</div>
+<div class="w3-row-padding">
+    <div class="w3-half">
+        <div class="w3-center profile-image-placeholder" ng-if="!block.photo">
+            <i class="fa fa-5x fa-picture-o w3-center"></i>
+            <h5><strong>No Picture</strong></h5>
+        </div>
+        <div ng-if="block.photo">
+            <img src="http://localhost:63342/personal-site/dist/img/personal_photo.jpg" style="width: 250px">
+        </div>
+        <button ng-click="" type="button" class="w3-button w3-blue w3-margin-top">Change Picture...</button>
+    </div>
+
+
+
+
+
+<!--    <div class="w3-quarter">-->
+<!--        <input type="file" id="myFile" name="filename">-->
+<!--    </div>-->
+<!--    <div class="w3-rest">-->
+<!--        <input type="submit">-->
+<!--    </div>-->
+
+
+
+
+
+</div>

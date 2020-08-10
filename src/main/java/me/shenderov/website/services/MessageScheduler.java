@@ -1,6 +1,7 @@
 package me.shenderov.website.services;
 
 import me.shenderov.website.dao.MessageWrapper;
+import me.shenderov.website.entities.MessageDeliveryStatus;
 import me.shenderov.website.entities.MessageStatus;
 import me.shenderov.website.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,10 +59,10 @@ public class MessageScheduler {
 
     private void resendMessages(){
         LOGGER.info("Unsent messages resend scheduled");
-        List<MessageStatus> statuses = new ArrayList<>();
-        statuses.add(MessageStatus.NEW);
-        statuses.add(MessageStatus.FAILED);
-        List<MessageWrapper> messages = messageRepository.findByStatusIsIn(statuses);
+        List<MessageDeliveryStatus> statuses = new ArrayList<>();
+        statuses.add(MessageDeliveryStatus.NEW);
+        statuses.add(MessageDeliveryStatus.FAILED);
+        List<MessageWrapper> messages = messageRepository.findByDeliveryStatusIsIn(statuses);
         if(messages.size() > 0){
             sendMessage(messages, "New Messages Received (Scheduler)");
         }
@@ -71,15 +72,16 @@ public class MessageScheduler {
         String message = mailContentBuilder.buildFormMessage(subject, messages);
         try {
             mailService.sendHtmlMessage(env.getProperty("application.admin.email"), subject, message);
-            updateStatus(messages, MessageStatus.DELIVERED);
+            updateStatus(messages, MessageDeliveryStatus.DELIVERED, MessageStatus.UNREAD);
         } catch (MailException e) {
             e.printStackTrace();
-            updateStatus(messages, MessageStatus.FAILED);
+            updateStatus(messages, MessageDeliveryStatus.FAILED, MessageStatus.NEW);
         }
     }
 
-    private void updateStatus(List<MessageWrapper> messages, MessageStatus status){
+    private void updateStatus(List<MessageWrapper> messages, MessageDeliveryStatus deliveryStatus, MessageStatus status){
         for(MessageWrapper message : messages){
+            message.setDeliveryStatus(deliveryStatus);
             message.setStatus(status);
             messageRepository.save(message);
         }

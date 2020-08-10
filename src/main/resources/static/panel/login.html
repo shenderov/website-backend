@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<title>Login</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<body>
+<div class="w3-container w3-display-middle">
+    <div class="w3-modal-content w3-card-4" style="max-width:600px">
+        <form id="login-form" class="w3-container" method="post" action="/perform_login">
+            <div class="w3-section w3-padding">
+                <div id="error-panel" class="w3-panel w3-red" style="display: none">
+                    <p>Incorrect username or password</p>
+                </div>
+                <label><b>Username</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" onchange="discardError()" name="username" placeholder="Enter Username" required type="text">
+                <label><b>Password</b></label>
+                <input class="w3-input w3-border" onchange="discardError()" name="password" placeholder="Enter Password" required type="password">
+                <button class="w3-button w3-block w3-blue w3-section w3-padding" type="submit">Login</button>
+                <input class="w3-check w3-margin-top" type="checkbox" name="remember-me"> Remember me
+            </div>
+        </form>
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+        </div>
+    </div>
+</div>
+</body>
+<script src="config/config.js"></script>
+<script>
+    let error = new URLSearchParams(window.location.search).get('error');
+    if(error){
+        document.getElementById('error-panel').style.display='block';
+    }
+    window.onload = function() {
+        document.getElementById("login-form").action = config.hostname + "/perform_login";
+    };
+    let isAuthenticated = function () {
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState === 4 && xmlHttp.status === 200){
+                window.location.replace(config.context + "/panel/index.html");
+            }
+        };
+        xmlHttp.open( "GET", config.context + "/system/ping", true );
+        xmlHttp.send( null );
+    };
+    isAuthenticated();
+    let discardError = function () {
+        if(error){
+            document.getElementById('error-panel').style.display='none';
+            error = false;
+        }
+    }
+</script>
+</html>

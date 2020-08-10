@@ -1,0 +1,31 @@
+<h6 class="w3-margin-left w3-margin-top"><strong>Blocks:</strong></h6>
+<div class="expertise-element-container" ng-repeat="l in block.blocks" data-ng-init="sortPositionedArray(block.blocks)">
+    <div class="w3-row-padding">
+        <div class="w3-quarter position-selector">
+            <span><i class="fa fa-close" ng-click="deletePositionedArrayRow(block.blocks, $index)"></i></span>
+            <span class="position-input">
+            <label>Position:</label>
+            <input class="w3-input ==" type="text" value="{{l.position}}" disabled>
+        </span>
+            <span><i class="fa fa-arrow-up" ng-click="moveUp(block.blocks, $index)"></i></span>
+            <span><i class="fa fa-arrow-down" ng-click="moveDown(block.blocks, $index)"></i></span>
+        </div>
+        <div class="w3-quarter">
+            <label>Icon Class:</label>
+            <input class="w3-input w3-border" type="text" value="{{l.iconClass}}">
+        </div>
+        <div class="w3-rest expertise-label">
+            <label>Label:</label>
+            <input class="w3-input w3-border" type="text" value="{{l.label}}">
+        </div>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-col">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" class="w3-input w3-border" type="text" ng-model="l.value" rows="5"></textarea>
+        </div>
+    </div>
+</div>
+<span>
+    <button class="w3-button w3-border w3-white" ng-click="block.blocks.push({position: block.blocks.length+1})">Add...</button>
+</span>

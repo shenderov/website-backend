@@ -1,0 +1,22 @@
+<div class="container w3-margin-bottom">
+    <button class="w3-button w3-blue" ng-click="getAllUsers()"><i class="fa fa-refresh"></i></button>
+    <button class="w3-button w3-white" ng-click="addUser()">Add User</button>
+</div>
+<table id="user-table" class="w3-table-all w3-hoverable w3-margin-bottom">
+    <thead>
+    <tr class="w3-blue">
+        <th>Username</th>
+        <th>Roles</th>
+        <th class="w3-center">Enabled</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tr ng-repeat="u in users track by u.id">
+        <td ng-click="editUser(u.username)">{{u.username}}</td>
+        <td ng-click="editUser(u.username)">{{convertRoles(u.authorities)}}</td>
+        <td class="w3-center"><input class="w3-check" type="checkbox" ng-model="u.enabled" ng-disabled="u.username === 'admin'"></td>
+        <td>
+            <button class="w3-button w3-tiny w3-red" ng-click="deleteUser(u.username)" ng-disabled="u.username === 'admin'">Delete</button>
+        </td>
+    </tr>
+</table>

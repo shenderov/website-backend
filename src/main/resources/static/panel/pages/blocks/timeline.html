@@ -1,0 +1,56 @@
+<h6 class="w3-margin-left w3-margin-top"><strong>Elements:</strong></h6>
+<div class="timeline-element-container" ng-repeat="e in block.elements">
+    <div class="w3-row-padding" >
+        <div class="w3-third">
+            <label>Start Date:</label>
+            <input class="w3-input w3-border" type="date" ng-model="e.startDate">
+        </div>
+        <div class="w3-third">
+            <label>End Date:</label>
+            <input class="w3-input w3-border" type="{{e.noEndDate ? 'text' : 'date'}}" ng-model="e.endDate" ng-disabled="e.noEndDate">
+        </div>
+        <div class="w3-third">
+            <label>No End Date:</label>
+            <input class="w3-input w3-border timeline-no-end-date-checkbox" type="checkbox" ng-model="e.noEndDate" ng-change="setNoEndDate(e)">
+        </div>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-col">
+            <label>Position:</label>
+            <input class="w3-input w3-border" type="text" value="{{e.positionName}}">
+        </div>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-col">
+            <label>Organisation:</label>
+            <input class="w3-input w3-border" type="text" value="{{e.organisation}}">
+        </div>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-col">
+            <label>Location:</label>
+            <input class="w3-input w3-border" type="text" value="{{e.location}}">
+        </div>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-col">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" class="w3-input w3-border" type="text" ng-model="e.description" rows="8"></textarea>
+        </div>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-col w3-right-align w3-margin-top">
+            <button class="w3-button w3-border w3-red" ng-click="block.elements.splice($index, 1)">Delete</button>
+        </div>
+    </div>
+</div>
+<span>
+    <button class="w3-button w3-border w3-white" ng-click="block.elements.push({})">Add...</button>
+</span>
+
+
+
+
+
+
+

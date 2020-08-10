@@ -1,5 +1,7 @@
 package me.shenderov.website.entities;
 
+import java.util.Objects;
+
 public class GenericElement {
     private int position;
     private String iconClass;
@@ -46,5 +48,21 @@ public class GenericElement {
 
     public void setIconClass(String iconClass) {
         this.iconClass = iconClass;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GenericElement)) return false;
+        GenericElement that = (GenericElement) o;
+        return getPosition() == that.getPosition() &&
+                Objects.equals(getIconClass(), that.getIconClass()) &&
+                Objects.equals(getLabel(), that.getLabel()) &&
+                Objects.equals(getValue(), that.getValue());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPosition(), getIconClass(), getLabel(), getValue());
     }
 }
