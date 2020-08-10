@@ -1,6 +1,6 @@
 app.factory('ConnectorAdmin', ['$http', '$q', function ($http, $q) {
-    var baseUrl = config.hostname + "/admin/";
-    var publicBaseUrl = config.hostname + "/public/";
+    var baseUrl = config.hostname + config.context + "/admin/";
+    var publicBaseUrl = config.hostname + config.context + "/public/";
     var headers = {"Authorization": "Basic YWRtaW46cGFzc3dvcmQ="};
     return {
         getAllMessages: function () {
