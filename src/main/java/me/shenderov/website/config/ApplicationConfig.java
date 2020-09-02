@@ -3,23 +3,21 @@ package me.shenderov.website.config;
 import me.shenderov.website.handlers.AdminRequestHandler;
 import me.shenderov.website.handlers.PublicRequestHandler;
 import me.shenderov.website.handlers.SystemRequestHandler;
+import me.shenderov.website.handlers.YandexMetricaHandler;
 import me.shenderov.website.interfaces.IAdminRequestHandler;
 import me.shenderov.website.interfaces.IPublicRequestHandler;
 import me.shenderov.website.interfaces.ISystemRequestHandler;
+import me.shenderov.website.interfaces.IYandexMetricaHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.http.CacheControl;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableAsync
@@ -28,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationConfig {
 
     @Bean
-    //@DependsOn("setApplicationSettings")
+    @DependsOn("setApplicationSettings")
     public DataInitializer dataInitializer() {
         return new DataInitializer();
     }
@@ -46,6 +44,11 @@ public class ApplicationConfig {
     @Bean
     public ISystemRequestHandler systemRequestHandler() {
         return new SystemRequestHandler();
+    }
+
+    @Bean
+    public IYandexMetricaHandler yandexMetricaHandler() {
+        return new YandexMetricaHandler();
     }
 
     @Bean
@@ -69,7 +72,6 @@ public class ApplicationConfig {
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
                 registry.addResourceHandler("/**").addResourceLocations("classpath:/static/front/");
                 registry.addResourceHandler("/panel/**").addResourceLocations("classpath:/static/panel/");
-                //registry.addResourceHandler("/auth/**").addResourceLocations("classpath:/static/auth/");
             }
         };
     }

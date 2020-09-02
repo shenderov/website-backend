@@ -2,22 +2,19 @@ package me.shenderov.website.dao.settings;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.CLASS,
         property = "classType")
+@Document(collection = "settings")
 public abstract class AbstractApplicationSettings {
 
     @Id
     private String id;
     private String classType;
-
-    public AbstractApplicationSettings(String id) {
-        this.id = id;
-        this.classType = getClass().getTypeName();
-    }
 
     public AbstractApplicationSettings() {
         this.classType = getClass().getTypeName();
@@ -34,11 +31,6 @@ public abstract class AbstractApplicationSettings {
     public String getClassType() {
         return classType;
     }
-
-    public void setClassType(String classType) {
-        this.classType = classType;
-    }
-
 
     @Override
     public boolean equals(Object o) {

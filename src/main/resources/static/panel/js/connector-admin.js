@@ -1,7 +1,9 @@
 app.factory('ConnectorAdmin', ['$http', '$q', function ($http, $q) {
     var baseUrl = config.hostname + config.context + "/admin/";
+    var authBaseUrl = config.hostname + config.context + "/auth/";
     var publicBaseUrl = config.hostname + config.context + "/public/";
-    var headers = {"Authorization": "Basic YWRtaW46cGFzc3dvcmQ="};
+    var systemBaseUrl = config.hostname + config.context + "/system/";
+    var headers = config.devHeaders;
     return {
         getAllMessages: function () {
             return $http.get(baseUrl + 'getAllMessages', {headers: headers})
@@ -271,6 +273,64 @@ app.factory('ConnectorAdmin', ['$http', '$q', function ($http, $q) {
         },
         changePassword: function (wrapper) {
             return $http.post(baseUrl + 'changeUserPassword', wrapper, {headers: headers})
+                .then(
+                    function (response) {
+                        return response.data;
+                    },
+                    function (errResponse) {
+                        return $q.reject(errResponse.data);
+                    }
+                );
+        },
+        getCurrentUser: function () {
+            return $http.get(authBaseUrl + 'getCurrentUser', {headers: headers})
+                .then(
+                    function (response) {
+                        return response.data;
+                    },
+                    function (errResponse) {
+                        return $q.reject(errResponse.data);
+                    }
+                );
+        },
+        getSettings: function (id) {
+            var data = {
+                id: id
+            };
+            var config = {
+                params: data,
+                headers : headers
+            };
+            return $http.get(systemBaseUrl + 'getSettings', config)
+                .then(
+                    function (response) {
+                        return response.data;
+                    },
+                    function (errResponse) {
+                        return $q.reject(errResponse.data);
+                    }
+                );
+        },
+        updateSettings: function (settings) {
+            return $http.post(systemBaseUrl + 'updateSettings', settings, {headers: headers})
+                .then(
+                    function (response) {
+                        return response.data;
+                    },
+                    function (errResponse) {
+                        return $q.reject(errResponse.data);
+                    }
+                );
+        },
+        getYMData: function (type) {
+            var data = {
+                type: type
+            };
+            var config = {
+                params: data,
+                headers : headers
+            };
+            return $http.get(systemBaseUrl + 'getYMData', config)
                 .then(
                     function (response) {
                         return response.data;

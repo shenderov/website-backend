@@ -4,6 +4,16 @@ html, body, h1, h2, h3, h4, h5 {
 #navbar > span {
   color: #fff; }
 
+.nav-footer {
+  left: 0;
+  bottom: 0;
+  width: inherit;
+  text-align: center;
+  position: fixed; }
+
+.nav-footer p {
+  font-size: 10px; }
+
 #message-table :not(thead) tr :not(:first-child) {
   cursor: pointer; }
 

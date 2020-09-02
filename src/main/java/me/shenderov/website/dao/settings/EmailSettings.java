@@ -1,11 +1,7 @@
 package me.shenderov.website.dao.settings;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Objects;
 
-@Document(collection = "settings")
 public class EmailSettings extends AbstractApplicationSettings{
 
     private String mailHost;
@@ -82,5 +78,40 @@ public class EmailSettings extends AbstractApplicationSettings{
 
     public void setSmtpDebug(Boolean smtpDebug) {
         this.smtpDebug = smtpDebug;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EmailSettings)) return false;
+        if (!super.equals(o)) return false;
+        EmailSettings that = (EmailSettings) o;
+        return Objects.equals(getMailHost(), that.getMailHost()) &&
+                Objects.equals(getPort(), that.getPort()) &&
+                Objects.equals(getUsername(), that.getUsername()) &&
+                Objects.equals(getPassword(), that.getPassword()) &&
+                Objects.equals(getSmtpAuth(), that.getSmtpAuth()) &&
+                Objects.equals(getSmtpStartTlsEnable(), that.getSmtpStartTlsEnable()) &&
+                Objects.equals(getTransportProtocol(), that.getTransportProtocol()) &&
+                Objects.equals(getSmtpDebug(), that.getSmtpDebug());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getMailHost(), getPort(), getUsername(), getPassword(), getSmtpAuth(), getSmtpStartTlsEnable(), getTransportProtocol(), getSmtpDebug());
+    }
+
+    @Override
+    public String toString() {
+        return "EmailSettings{" +
+                "mailHost='" + mailHost + '\'' +
+                ", port=" + port +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", smtpAuth=" + smtpAuth +
+                ", smtpStartTlsEnable=" + smtpStartTlsEnable +
+                ", transportProtocol='" + transportProtocol + '\'' +
+                ", smtpDebug=" + smtpDebug +
+                '}';
     }
 }

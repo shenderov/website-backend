@@ -1,43 +1,183 @@
 <div class="w3-row-padding w3-margin-bottom">
+
     <div class="w3-quarter">
         <div class="w3-container w3-red w3-padding-16">
-            <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-            <div class="w3-right">
-                <h3>52</h3>
+            <div class="w3-right"><i class="fa fa-hdd-o w3-xxlarge"></i></div>
+            <div class="w3-left">
+                <h4>Disk Info:</h4>
             </div>
-            <div class="w3-clear"></div>
-            <h4>Messages</h4>
+            <div class="w3-clear">
+                <table>
+                    <tr>
+                        <td>Total:</td>
+                        <td>20Gb</td>
+                    </tr>
+                    <tr>
+                        <td>Usable:</td>
+                        <td>19Gb</td>
+                    </tr>
+                    <tr>
+                        <td>Available:</td>
+                        <td>15Gb</td>
+                    </tr>
+                    <tr>
+                        <td>Capacity:</td>
+                        <td>80%</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
+
     <div class="w3-quarter">
         <div class="w3-container w3-blue w3-padding-16">
-            <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-            <div class="w3-right">
-                <h3>99</h3>
+            <div class="w3-right"><i class="fa fa-microchip w3-xxlarge"></i></div>
+            <div class="w3-left">
+                <h4>Memory Info:</h4>
             </div>
-            <div class="w3-clear"></div>
-            <h4>Views</h4>
+            <div class="w3-clear">
+                <table>
+                    <tr>
+                        <td>Total:</td>
+                        <td>2Gb</td>
+                    </tr>
+                    <tr>
+                        <td>Free:</td>
+                        <td>595Mb</td>
+                    </tr>
+                    <tr>
+                        <td>Swap Total:</td>
+                        <td>2Gb</td>
+                    </tr>
+                    <tr>
+                        <td>Swap Free:</td>
+                        <td>2Gb</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <div class="w3-quarter">
         <div class="w3-container w3-teal w3-padding-16">
-            <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-            <div class="w3-right">
-                <h3>23</h3>
+            <div class="w3-right"><i class="fa fa-laptop w3-xxlarge"></i></div>
+            <div class="w3-left">
+                <h4>CPU Info:</h4>
             </div>
-            <div class="w3-clear"></div>
-            <h4>Shares</h4>
+            <div class="w3-clear">
+                <table>
+                    <tr>
+                        <td>Model:</td>
+                        <td>Intel Core i5</td>
+                    </tr>
+                    <tr>
+                        <td>Cores:</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Speed:</td>
+                        <td>2700Mhz</td>
+                    </tr>
+                    <tr>
+                        <td>Usage:</td>
+                        <td>43%</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <div class="w3-quarter">
         <div class="w3-container w3-orange w3-text-white w3-padding-16">
-            <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-            <div class="w3-right">
-                <h3>50</h3>
+            <div class="w3-right"><i class="fa fa-info w3-xxlarge"></i></div>
+            <div class="w3-left">
+                <h4>System Info:</h4>
             </div>
-            <div class="w3-clear"></div>
-            <h4>Users</h4>
+            <div class="w3-clear">
+                <table>
+                    <tr>
+                        <td>Family:</td>
+                        <td>Linux</td>
+                    </tr>
+                    <tr>
+                        <td>Version:</td>
+                        <td>Ubuntu</td>
+                    </tr>
+                    <tr>
+                        <td>Kernel:</td>
+                        <td>3.13.0-37</td>
+                    </tr>
+                    <tr>
+                        <td>Arch:</td>
+                        <td>x86_64</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
+<div ng-if="ym.enabled">
+<div class="w3-container">
+    <h4>Geography</h4>
+    <table class="w3-table w3-white w3-striped">
+        <tr>
+            <th>Country</th>
+            <th>Sessions</th>
+            <th>Users</th>
+            <th>Time on site</th>
+        </tr>
+        <tr ng-repeat="c in ym.geography.data">
+            <td>{{c.dimensions[0].name}}</td>
+            <td>{{c.metrics[0][0]}}</td>
+            <td>{{c.metrics[0][1]}}</td>
+            <td>{{c.metrics[0][4] | secondsToDateTime | date:'mm:ss'}}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="w3-container w3-margin-bottom">
+    <div class="w3-row">
+        <div class="w3-half w3-container w3-white">
+            <div class="users-chart"></div>
+        </div>
+        <div class="w3-half w3-container w3-white">
+            <div class="new-users-chart"></div>
+        </div>
+    </div>
+</div>
+
+<div class="w3-container w3-margin-bottom">
+    <div class="w3-row">
+        <div class="w3-half w3-container w3-white">
+            <div class="ct-chart3"></div>
+        </div>
+        <div class="w3-half w3-container w3-white">
+<!--            <div class="ct-chart2"></div>-->
+            <h4>URL</h4>
+            <table class="w3-table w3-white w3-striped">
+                <tr>
+                    <th>URL</th>
+                    <th>Pageviews</th>
+                </tr>
+                <tr ng-repeat="u in ym.url.data">
+                    <td>{{u.dimensions[0].name}}</td>
+                    <td>{{u.metrics[0][1]}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<div class="w3-container ng-if="!ym.enabled">
+    <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <h4>Yandex Metrica is disabled.</h4>
+    </div>
+</div>
+
+
+<!--Geography-->
+<!--Users-->
+<!--New users-->
+<!--Traffic source-->
+<!--Url?-->
+
 

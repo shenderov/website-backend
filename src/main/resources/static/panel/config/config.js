@@ -1,4 +1,6 @@
 const config = {
     "hostname": "",
-    "context": ""
+    "context": "",
+    "devHeaders": {}
+    //"devHeaders": {"Authorization": "Basic YWRtaW46cGFzc3dvcmQ="}
 };

@@ -21,7 +21,7 @@ public class SecurityController {
     private UserRepository userRepository;
 
     @RequestMapping(value = "/getCurrentUser", method = RequestMethod.GET)
-    public User getCurrentUser(HttpServletRequest request, Principal principal) {
+    public User getCurrentUser(Principal principal) {
         return userRepository.findUserByUsername(principal.getName());
     }
 

@@ -1,1 +1,83 @@
-<h2>Settings</h2>
+<div class="w3-container">
+    <div class="w3-bar w3-blue">
+        <button class="w3-bar-item w3-button" ng-class="{'w3-white' : settings.id === 'application'}" ng-click="getSettings('application')">Application Settings</button>
+        <button class="w3-bar-item w3-button" ng-class="{'w3-white' : settings.id === 'email'}" ng-click="getSettings('email')">Email Settings</button>
+    </div>
+    <div id="application" class="w3-container" ng-if="settings.id === 'application'">
+        <div class="w3-panel">
+            <label for="settingsEnableMailerService">Enable Mailer Service:</label>
+            <input id="settingsEnableMailerService" class="w3-input w3-check" type="checkbox" ng-model="settings.enableMailerService">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsAdminEmail">Admin Email:</label>
+            <input id="settingsAdminEmail" class="w3-input w3-border" type="email" ng-model="settings.adminEmail">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsRunDataInitializerOnStartup">Run Data Initializer on Startup:</label>
+            <input id="settingsRunDataInitializerOnStartup" class="w3-input w3-check" type="checkbox" ng-model="settings.runDataInitializerOnStartup">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsUpdateFromJsonOnOnStartup">Update blocks from JSON on Startup:</label>
+            <input id="settingsUpdateFromJsonOnOnStartup" class="w3-input w3-check" type="checkbox" ng-model="settings.updateFromJsonOnOnStartup">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEnableRecaptcha">Enable ReCaptcha:</label>
+            <input id="settingsEnableRecaptcha" class="w3-input w3-check" type="checkbox" ng-model="settings.enableRecaptcha">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsRecaptchaSecretKey">ReCaptcha Secret Key:</label>
+            <input id="settingsRecaptchaSecretKey" class="w3-input w3-border" type="text" ng-disabled="!settings.enableRecaptcha" ng-model="settings.recaptchaSecretKey">
+        </div>
+
+        <div class="w3-panel">
+            <label for="settingsEnableYM">Enable Yandex Metrica:</label>
+            <input id="settingsEnableYM" class="w3-input w3-check" type="checkbox" ng-model="settings.enableYandexMetrica">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsYmId">Yandex Metrica ID:</label>
+            <input id="settingsYmId" class="w3-input w3-border" type="text" ng-disabled="!settings.enableYandexMetrica" ng-model="settings.yandexMetricaId">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsYmToken">Yandex Metrica Token:</label>
+            <input id="settingsYmToken" class="w3-input w3-border" type="password" ng-disabled="!settings.enableYandexMetrica" ng-model="settings.yandexMetricaToken">
+        </div>
+    </div>
+
+    <div id="email" class="w3-container" ng-if="settings.id === 'email'">
+        <div class="w3-panel">
+            <label for="settingsEmailUsername">Username:</label>
+            <input id="settingsEmailUsername" class="w3-input w3-border" type="email" ng-model="settings.username">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEmailPassword">Password:</label>
+            <input id="settingsEmailPassword" class="w3-input w3-border" type="password" ng-model="settings.password">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEmailHost">Server Hostname:</label>
+            <input id="settingsEmailHost" class="w3-input w3-border" type="text" ng-model="settings.mailHost">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEmailPort">Server Port:</label>
+            <input id="settingsEmailPort" class="w3-input w3-border" type="number" ng-model="settings.port">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEmailProtocol">Transport Protocol:</label>
+            <input id="settingsEmailProtocol" class="w3-input w3-border" type="text" ng-model="settings.transportProtocol">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEmailSmtpStartTlsEnable">SMTP Start TLS:</label>
+            <input id="settingsEmailSmtpStartTlsEnable" class="w3-input w3-check" type="checkbox" ng-model="settings.smtpStartTlsEnable">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEmailSmtpAuth">SMTP Authentication:</label>
+            <input id="settingsEmailSmtpAuth" class="w3-input w3-check" type="checkbox" ng-model="settings.smtpAuth">
+        </div>
+        <div class="w3-panel">
+            <label for="settingsEmailSmtpDebug">SMTP Debug:</label>
+            <input id="settingsEmailSmtpDebug" class="w3-input w3-check" type="checkbox" ng-model="settings.smtpDebug">
+        </div>
+    </div>
+    <div class="w3-container w3-border-top w3-padding-16 w3-margin-top w3-right-align">
+        <button ng-click="save(settings)" type="button" class="w3-button w3-blue">Save</button>
+    </div>
+</div>
