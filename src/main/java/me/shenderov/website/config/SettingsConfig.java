@@ -30,43 +30,43 @@ public class SettingsConfig {
     }
 
     public void setEmailSettings(SettingsRepository settingsRepository) {
-        LOGGER.info("Setting email settings...");
-        if(!settingsRepository.existsById("email")){
-            LOGGER.info("Email settings: config does not exits in the database, initiate from the property file...");
-            saveEmailSettingsFromProperties(settingsRepository);
-        }
-        try {
-            LOGGER.info("Email settings: getting config from the database and setting up...");
-            EmailSettings emailSettings = (EmailSettings) settingsRepository.findById("email").orElseThrow(() -> new Exception("Settings entry with id: 'email' is not found"));
-            setEmailProperties(emailSettings);
-            LOGGER.info("Email settings: compare DB version to properties...");
-            if(!getEmailSettingsFromProperties().equals(emailSettings)){
-                LOGGER.warning("Email settings: DB version is not equals to properties properties...");
-            }
-        } catch (Exception e) {
-            LOGGER.severe("Email settings: cannot find email settings in the DB. Following steps may be ignored");
-            e.printStackTrace();
-        }
+//        LOGGER.info("Setting email settings...");
+//        if(!settingsRepository.existsById("email")){
+//            LOGGER.info("Email settings: config does not exits in the database, initiate from the property file...");
+//            saveEmailSettingsFromProperties(settingsRepository);
+//        }
+//        try {
+//            LOGGER.info("Email settings: getting config from the database and setting up...");
+//            EmailSettings emailSettings = (EmailSettings) settingsRepository.findById("email").orElseThrow(() -> new Exception("Settings entry with id: 'email' is not found"));
+//            setEmailProperties(emailSettings);
+//            LOGGER.info("Email settings: compare DB version to properties...");
+//            if(!getEmailSettingsFromProperties().equals(emailSettings)){
+//                LOGGER.warning("Email settings: DB version is not equals to properties properties...");
+//            }
+//        } catch (Exception e) {
+//            LOGGER.severe("Email settings: cannot find email settings in the DB. Following steps may be ignored");
+//            e.printStackTrace();
+//        }
     }
 
     public void setApplicationSettings(SettingsRepository settingsRepository) {
-        LOGGER.info("Setting application settings...");
-        if(!settingsRepository.existsById("application")){
-            LOGGER.info("Application settings: config does not exits in the database, initiate from the property file...");
-            saveApplicationSettingsFromProperties(settingsRepository);
-        }
-        try {
-            LOGGER.info("Application settings: getting config from the database and setting up...");
-            ApplicationSettings applicationSettings = (ApplicationSettings) settingsRepository.findById("application").orElseThrow(() -> new Exception("Settings entry with id: 'application' is not found"));
-            setApplicationProperties(applicationSettings);
-            LOGGER.info("Application settings: compare DB version to properties...");
-            if(!getApplicationSettingsFromProperties().equals(applicationSettings)){
-                LOGGER.warning("Application settings: DB version is not equals to properties properties...");
-            }
-        } catch (Exception e) {
-            LOGGER.severe("Application settings: cannot find application settings in the DB. Following steps may be ignored");
-            e.printStackTrace();
-        }
+//        LOGGER.info("Setting application settings...");
+//        if(!settingsRepository.existsById("application")){
+//            LOGGER.info("Application settings: config does not exits in the database, initiate from the property file...");
+//            saveApplicationSettingsFromProperties(settingsRepository);
+//        }
+//        try {
+//            LOGGER.info("Application settings: getting config from the database and setting up...");
+//            ApplicationSettings applicationSettings = (ApplicationSettings) settingsRepository.findById("application").orElseThrow(() -> new Exception("Settings entry with id: 'application' is not found"));
+//            setApplicationProperties(applicationSettings);
+//            LOGGER.info("Application settings: compare DB version to properties...");
+//            if(!getApplicationSettingsFromProperties().equals(applicationSettings)){
+//                LOGGER.warning("Application settings: DB version is not equals to properties properties...");
+//            }
+//        } catch (Exception e) {
+//            LOGGER.severe("Application settings: cannot find application settings in the DB. Following steps may be ignored");
+//            e.printStackTrace();
+//        }
     }
 
     private void saveEmailSettingsFromProperties(SettingsRepository settingsRepository){
