@@ -15,6 +15,9 @@ public class UsernameAuthorityWrapper implements Serializable {
     @NotNull
     private Set<Authority> authorities;
 
+    public UsernameAuthorityWrapper() {
+    }
+
     public UsernameAuthorityWrapper(String username, Set<Authority> authorities) {
         this.username = username;
         this.authorities = authorities;
