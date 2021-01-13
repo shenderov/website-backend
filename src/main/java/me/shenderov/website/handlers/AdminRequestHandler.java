@@ -162,6 +162,7 @@ public class AdminRequestHandler implements IAdminRequestHandler {
             preview.setId(b.getId());
             preview.setPosition(b.getPosition());
             preview.setTitle(b.getTitle());
+            preview.setClassType(b.getClassType());
             blocks.put(b.getId(), preview);
         }
         return blocks;

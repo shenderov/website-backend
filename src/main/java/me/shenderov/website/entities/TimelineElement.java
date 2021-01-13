@@ -1,14 +1,10 @@
 package me.shenderov.website.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 import java.util.Objects;
 
 public class TimelineElement {
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSSZ")
     private Date startDate;
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSSZ")
     private Date endDate;
     private boolean noEndDate;
     private String positionName;
